@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			  crossorigin="anonymous">
+    </head>
+    <body>
+        <style>
+    		body {
+        		       -webkit-animation: colorchange 60s infinite;
+    					animation: colorchange 60s infinite;
+				}
+				@-webkit-keyframes colorchange {
+					 0%  {background: #33FFF3;}
+					25%  {background: #78281F;}
+					50%  {background: #117A65;}
+					75%  {background: #DC7633;}
+					100% {background: #9B59B6;}
+				}
+				@keyframes colorchange {
+					 0%  {background: #33FFF3;}
+					25%  {background: #78281F;}
+					50%  {background: #117A65;}
+					75%  {background: #DC7633;}
+					100% {background: #9B59B6;}
+
+    		}
+
+    		a {
+        		color: rgb(255, 111, 111);
+    		}
+
+			nav {
+                margin: 27px auto 0;
+            
+                position: relative;
+                width: 590px;
+                height: 50px;
+                background-color: #34495e;
+                border-radius: 8px;
+                font-size: 0;
+            }
+            nav a {
+                line-height: 50px;
+                height: 100%;
+                font-size: 15px;
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                text-decoration: none;
+                text-transform: uppercase;
+                text-align: center;
+                color: white;
+                cursor: pointer;
+            }
+            nav .animation {
+                position: absolute;
+                height: 100%;
+                top: 0;
+                z-index: 0;
+                transition: all .5s ease 0s;
+                border-radius: 8px;
+            }
+            a:nth-child(1) {
+                width: 120px;
+            }
+            a:nth-child(2) {
+                width: 160px;
+            }
+            a:nth-child(3) {
+                width: 150px;
+            }
+            a:nth-child(4) {
+                width: 160px;
+            }
+            a:nth-child(5) {
+                width: 120px;
+            }
+            nav .start-home, a:nth-child(1):hover~.animation {
+                width: 120px;
+                left: 0;
+                background-color: #1abc9c;
+            }
+            nav .start-notes, a:nth-child(2):hover~.animation {
+                width: 155px;
+                left: 120px;
+                background-color: #e74c3c;
+            }
+            nav .start-new, a:nth-child(3):hover~.animation {
+                width: 170px;
+                left: 270px;
+                background-color: #3498db;
+            }
+            nav .start-contacts, a:nth-child(4):hover~.animation {
+                width: 145px;
+                left: 445px;
+                background-color: #9b59b6;
+            }
+            
+            body {
+                font-size: 12px;
+                font-family: sans-serif;
+                background: #2c3e50;
+            }
+            .h11 {
+                text-align: center;
+                margin: 40px 0 40px;
+                text-align: center;
+                font-size: 30px;
+                color: #ecf0f1;
+                text-shadow: 2px 2px 4px #000000;
+                font-family: 'Cherry Swash', cursive;
+            }
+
+            span {
+                color: #2BD6B4;
+            }
+		</style>
+        <h1 class="h11">Заметки</h1>
+		<nav>
+			<a href="/">Главная</a>
+			<a href="/notes">Мои заметки</a>
+			<a href="/new_note">Создать заметку</a>
+			<a href="/contacts">Контакты</a>
+			<div class="animation start-notes"></div>
+		</nav>
+        <div class="container mt-5">
+            <h1>{{ note.title }}</h1>
+            <div class="alert alert-info">
+                <p>{{ note.text_note }}</p>
+                <p><b>{{ note.date_create }}</b></p>
+				<a href='/notes/open/{{ note.id }}/edit' class="btn btn-warning">Изменить</a>
+				<a href='/notes/open/{{ note.id }}/delete' class="btn btn-danger">Удалить</a>
+            </div>
+        </div>
+		<div class="fixed-bottom bg-primary">
+			<div class="text-center">© В. В. Альхимович, 2024</div>
+		</div>
+    </body>
+</html>
